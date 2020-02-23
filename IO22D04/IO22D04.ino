@@ -1,5 +1,3 @@
-#include <ArduinoModbus.h>
-
 
 #define In1 A1
 #define In2 A0
