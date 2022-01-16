@@ -93,8 +93,7 @@ void write_display() {
 }
 
 void setup() {
-  //Serial.begin(19200);
-
+  
   pinMode(K1, INPUT_PULLUP);
   pinMode(K2, INPUT_PULLUP);
   pinMode(K3, INPUT_PULLUP);
