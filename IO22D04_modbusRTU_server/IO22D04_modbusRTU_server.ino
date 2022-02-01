@@ -1,6 +1,6 @@
 // The Term Server in modbus is actually a client device
 // like a sensor or relay
-// a modbus server is a slave device
+
 
 
 #include <ArduinoRS485.h>
