@@ -38,7 +38,7 @@ unsigned long o_time = 0;
 int m_cntr = 0;
 
 uint8_t modbus_address = 0x02;
-int modbus_speed = 9600;
+int modbus_speed = 19200;
 
 void maintenance() {
   m_cntr++;
