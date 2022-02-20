@@ -1,10 +1,15 @@
+
 // The Term Server in modbus is actually a client device
 // like a sensor or relay
 
-
-
+#include <Arduino.h>
+#include <MicrocontrollerID.h>
 #include <ArduinoRS485.h>
 #include <ArduinoModbus.h>
+
+#ifdef ARDUINO_ARCH_RP2040
+#define ENV = "RP2040"
+#endif
 
 #define In1 A1
 #define In2 A0
@@ -128,7 +133,9 @@ void setup() {
   //delay(1);
   digitalWrite(LED_BUILTIN, LOW);
 
-  RS485.setPins(clock_pin, latch_pin, data_pin);
+  //RS485.setPins(clock_pin, latch_pin, data_pin);
+  //RS485.begin(modbus_speed);
+
   // start the Modbus RTU server, with (slave) id 1
   if (!ModbusRTUServer.begin(modbus_address, modbus_speed)) {
     Serial.println("Failed to start Modbus RTU Server!");
