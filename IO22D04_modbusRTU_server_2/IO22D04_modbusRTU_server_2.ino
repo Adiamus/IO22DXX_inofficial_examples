@@ -38,13 +38,13 @@ unsigned long o_time = 0;
 int m_cntr = 0;
 
 uint8_t modbus_address = 0x02;
-int modbus_speed = 19200;
+int modbus_speed = 9600;
 
 void maintenance() {
   m_cntr++;
   if (m_cntr >= 4096) {
     digitalWrite(LED_BUILTIN, HIGH);
-    delay(1);
+    //delay(1);
     m_cntr = 0;
     digitalWrite(LED_BUILTIN, LOW);
   }
@@ -120,18 +120,19 @@ void setup() {
     delay(2);
     }*/
 
-  digitalWrite(LED_BUILTIN, HIGH);
+  //digitalWrite(LED_BUILTIN, HIGH);
   //delay(1);
-  digitalWrite(LED_BUILTIN, LOW);
+  //digitalWrite(LED_BUILTIN, LOW);
   //delay(1);
-  digitalWrite(LED_BUILTIN, HIGH);
+  //digitalWrite(LED_BUILTIN, HIGH);
   //delay(1);
-  digitalWrite(LED_BUILTIN, LOW);
+  //digitalWrite(LED_BUILTIN, LOW);
   // start the Modbus RTU server, with (slave) id 1
   if (!ModbusRTUServer.begin(modbus_address, modbus_speed)) {
-    Serial.println("Failed to start Modbus RTU Server!");
+    digitalWrite(LED_BUILTIN, HIGH);
     while (1);
   }
+  digitalWrite(LED_BUILTIN, LOW);
   //Relay 1 till 4 and all 4 together at 0x04
   ModbusRTUServer.configureCoils(0x00, 4);
 
